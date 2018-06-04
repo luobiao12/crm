@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css">
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="/static/css/add.css">
+    <link rel="stylesheet" href="/static/css/list.css">
+    <script src="/static/chart/highcharts.js"></script>
+    <style>
+        .head {
+            height: 60px;
+            width: 100%;
+            background-color: darkturquoise;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .memu {
+            width: 200px;
+            background-color: deeppink;
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+        }
+        .menu_btn{
+            font-size: 15px;
+            text-align: center;
+            padding: 30px 0;
+
+
+        }
+        .con {
+            top: 60px;
+            bottom: 0;
+            right: 0;
+            left: 200px;
+            overflow: auto;
+            padding: 30px;
+            position: fixed;
+        }
+        .head .title{
+            color: white;
+            font-size: 20px;
+            margin-right: 20px;
+            font-weight: 100;
+            top: 10px;
+
+        }
+        .menu_btn{
+            font-size: 200px;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="head">
+    <p class="title pull-right">{{ user.name }}</p>
+    <a href="/login/" style="color: deeppink;right: 100px">退出登录</a>
+</div>
+<div class="contain">
+    {% load my_tags %}
+    <div class="memu">
+        {% get_memu request %}
+    </div>
+    <div class="con">
+        {% block con %}
+
+
+        {% endblock %}
+    </div>
+
+</div>
+</body>
+</html>
